@@ -1,7 +1,8 @@
+
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Telephasic | Hair</title>
+    <title>MoMo | Hair</title>
     <meta charset="utf-8">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" rel="stylesheet" type="text/css">
     <!--[if lte IE 8]>
@@ -26,7 +27,7 @@
             <ul>
                 <li> <a href="">Sign Up</a>
                     <ul>
-                        <li><a href="Sign%20Up.html">Sign Up</a></li>
+                        <li><a href="Sign%20Up.php">Sign Up</a></li>
                         <li><a href="Login.html">Login</a></li>
                         <li><a href="#">Makeup Subscription</a></li>
                         <li><a href="#">Hair Subscription</a></li>
@@ -52,18 +53,44 @@
         </div>
         <div class="row half">
             <div class="6u">
-                <input name="Password" placeholder="Password" type="text" class="text">
+                <input name="Password" placeholder="Password" type="password" class="text">
             </div>
         </div>
         <div class="row half">
             <div class="12u">
                 <ul class="actions">
-                    <li><a href="#" class="button">Sign Up</a></li>
+                    <li><a href="#" class="button" name="submit">Sign Up</a></li>
                 </ul>
             </div>
         </div>
     </form>
 </section>
-
 </body>
+
+
+<?php
+
+if (isset($_POST['submit'])) {
+    $username = $_POST['name'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+}
+
+
+if (!empty($username) && !empty($email) && !empty($password)) {
+
+$dbh = new PDO('mysql:host=localhost;dbname=MoMo', 'root', 'root');
+
+$query = "INSERT INTO MoMo.users VALUES (:username, :email, :password, :)";
+    
+}
+
+
+?>
+
 </html>
+
+
+
+
+
