@@ -1,4 +1,3 @@
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -41,97 +40,40 @@
     </div>
 </div>
 
-<a class="image full"><img src="http://az835686.vo.msecnd.net/images/gallery/PBB_new.jpg" ></a>
+<a class="image full"><img src="http://az835686.vo.msecnd.net/images/gallery/PBB_new.jpg"></a>
 
-<header><h2>Sign Up</h2></header>
-
-
+<header><h2>Login</h2></header>
 
 <?php
 
-$from = 'azaniyahs@yahoo.com';
-$name = $_POST['newuser'];
 
-
-if (isset($_POST['submit'])){
-    $name = $_POST['name'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-
-if (!empty($name) && !empty($email) && !empty($password)) {
-
-    $dbh = new PDO('mysql:host=localhost;dbname=MoMo', 'root', 'root');
-
-
-    $query = "INSERT INTO MoMo.users VALUES (0, :name, :email, :password)";
-
-
-    echo '<p>Thank you for subscribing!!</p>';
-    echo '<p><srtong>Name:</srtong> ' . $name . '<br </br />';
-    echo '<p><strong>Email:</strong>' . $email . '</p>';
-    echo '<p><a href="Index.php">&lt;&lt; Return to homepage</a></p>';
-
-
-    $stmt = $dbh->prepare($query);
-    $result = $stmt->execute(
-        array(
-            'name' => $name,
-            'email' => $email,
-            'password' => $password,
-        )
-    );
-
-
-    ?>
-    <script>alert("Royal subject submitted");</script>
-<?php
-
-}else{
-?>
-    <script>alert("Please add the information needed");</script>
-<?php
-
-}
-
-}
 
 
 ?>
+
 
 <!-- Sign Up Info -->
 <section class="6u">
-    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    <form method="post" action="#">
         <div class="row half">
             <div class="6u">
-                <input name="name" placeholder="Name" type="text" class="text" value="<?php if (!empty($name)) echo $name; ?>">
-            </div>
-            <div class="6u">
-                <input name="email" placeholder="Email" type="text" class="text" value="<?php if (!empty($email)) echo $email; ?>">
+                <input name="name" placeholder="Email" type="text" class="text">
             </div>
         </div>
         <div class="row half">
             <div class="6u">
-                <input name="password" placeholder="Password" type="password" class="text">
+                <input name="Password" placeholder="Password" type="text" class="text">
             </div>
         </div>
         <div class="row half">
             <div class="12u">
                 <ul class="actions">
-                    <li><input type="submit" value="Sign Up" name="submit" class="text"></li>
+                    <li><a href="#" class="button">Login</a></li>
                 </ul>
             </div>
         </div>
     </form>
 </section>
+
 </body>
-
-
-
-
 </html>
-
-
-
-
-

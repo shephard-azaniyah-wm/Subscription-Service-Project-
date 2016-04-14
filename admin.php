@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>MoMo | Hair</title>
+    <title>MoMo | Admin</title>
     <meta charset="utf-8">
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600" rel="stylesheet" type="text/css">
     <!--[if lte IE 8]>
@@ -40,34 +40,39 @@
     </div>
 </div>
 
-<a class="image full"><img src="http://az835686.vo.msecnd.net/images/gallery/PBB_new.jpg"></a>
-
-<header><h2>Login</h2></header>
+<h2>Administration Page | Delete An Account</h2>
 
 
+<?php
+require_once('authorize.php');
 
-<!-- Sign Up Info -->
-<section class="6u">
-    <form method="post" action="#">
-        <div class="row half">
-            <div class="6u">
-                <input name="name" placeholder="Email" type="text" class="text">
-            </div>
-        </div>
-        <div class="row half">
-            <div class="6u">
-                <input name="Password" placeholder="Password" type="text" class="text">
-            </div>
-        </div>
-        <div class="row half">
-            <div class="12u">
-                <ul class="actions">
-                    <li><a href="#" class="button">Login</a></li>
-                </ul>
-            </div>
-        </div>
-    </form>
-</section>
+$dbh = new PDO('mysql:host=localhost;dbname=MoMo', 'root', 'root');
 
-</body>
-</html>
+$query = "SELECT * FROM MoMo.users";
+
+$stmt = $dbh->prepare($query);
+$stmt->execute();
+$name = $stmt->fetchall();
+
+echo'<table>';
+
+echo '<tr><th>Name</th><th>Email</th><th>Password</th>';
+
+
+foreach ($result as $row) {
+    echo '<tr class="users"><td><strong>' . $row['name'] . '</strong></td>';
+    echo '<td>' . $row['email'] . '</td>';
+    echo '<td>' . $row['password'] . '</td>';
+    echo '<td><a href="remove.php?id=' . $row['id'] . '&amp;name=' . $row['name'] .
+        '&amp;password' . '&amp;email=' . $row['email'] . $row['password'] . '">Remove</a>
+</td></tr>';
+
+}
+
+echo '</table>';
+
+
+
+?>
+
+
