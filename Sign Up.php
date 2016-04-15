@@ -28,9 +28,7 @@
                 <li> <a href="">Sign Up</a>
                     <ul>
                         <li><a href="Sign%20Up.php">Sign Up</a></li>
-                        <li><a href="Login.html">Login</a></li>
-                        <li><a href="#">Makeup Subscription</a></li>
-                        <li><a href="#">Hair Subscription</a></li>
+                        <li><a href="Login.php">Login</a></li>
                     </ul>
                 </li>
                 <li><a href="left-sidebar.html">Makeup</a></li>
@@ -70,7 +68,7 @@ if (!empty($name) && !empty($email) && !empty($password)) {
     echo '<p>Thank you for subscribing!!</p>';
     echo '<p><srtong>Name:</srtong> ' . $name . '<br </br />';
     echo '<p><strong>Email:</strong>' . $email . '</p>';
-    echo '<p><a href="Index.php">&lt;&lt; Return to homepage</a></p>';
+    echo '<p><a href="index.html">&lt;&lt; Return to homepage</a></p>';
 
 
     $stmt = $dbh->prepare($query);
@@ -82,10 +80,6 @@ if (!empty($name) && !empty($email) && !empty($password)) {
         )
     );
 
-
-    ?>
-    <script>alert("Royal subject submitted");</script>
-<?php
 
 }else{
 ?>

@@ -27,9 +27,7 @@
                 <li> <a href="">Sign Up</a>
                     <ul>
                         <li><a href="Sign%20Up.php">Sign Up</a></li>
-                        <li><a href="Login.html">Login</a></li>
-                        <li><a href="#">Makeup Subscription</a></li>
-                        <li><a href="#">Hair Subscription</a></li>
+                        <li><a href="Login.php">Login</a></li>
                     </ul>
                 </li>
                 <li><a href="left-sidebar.html">Makeup</a></li>

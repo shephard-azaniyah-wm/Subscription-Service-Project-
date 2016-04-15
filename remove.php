@@ -27,9 +27,7 @@
                 <li> <a href="">Sign Up</a>
                     <ul>
                         <li><a href="Sign%20Up.php">Sign Up</a></li>
-                        <li><a href="Login.html">Login</a></li>
-                        <li><a href="#">Makeup Subscription</a></li>
-                        <li><a href="#">Hair Subscription</a></li>
+                        <li><a href="Login.php">Login</a></li>
                     </ul>
                 </li>
                 <li><a href="left-sidebar.html">Makeup</a></li>
@@ -40,7 +38,9 @@
     </div>
 </div>
 
-<h2>Administration Page: For Deleting any accounts</h2>
+<header>
+<h2 align="center">Administration Page | Deleting Account Below</h2>
+</header>
 
 <?php
 
@@ -48,11 +48,11 @@ require_once('authorize.php');
 
 
 if (isset($_GET['id']) && isset($_GET['name']) && isset($_GET['email']) && isset($_GET['password'])) {
-    // Grab the score data from the GET
+    // Grab the account data from the GET
     $id = $_GET['id'];
-    $date = $_GET['name'];
-    $name = $_GET['email'];
-    $score = $_GET['password'];
+    $name = $_GET['name'];
+    $email = $_GET['email'];
+    $password = $_GET['password'];
 }
 else if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['email']) && isset($_POST['password'])) {
     // Grab the score data from the POST
@@ -62,7 +62,7 @@ else if (isset($_POST['id']) && isset($_POST['name']) && isset($_POST['email']) 
     $password = $_POST['password'];
 }
 else {
-    echo '<p class="error">Sorry, no high score was specified for removal.</p>';
+    echo '<p class="error">Sorry, no account was specified for removal.</p>';
 }
 
 if (isset($_POST['submit'])) {
@@ -71,14 +71,14 @@ if (isset($_POST['submit'])) {
         // Connect to the database
         $dbh = new PDO('mysql:host=localhost;dbname=MoMo', 'root', 'root');
         // Delete the account data from the database
-        $query = "DELETE FROM MoMo.users WHERE id = $id LIMIT 1";
+        $query = "DELETE FROM MoMo.users WHERE id = $id";
 
         $stmt = $dbh->prepare($query);
         $stmt->execute();
-        $score = $stmt->fetchall();
+        $name = $stmt->fetchall();
 
         // Confirm success with the user
-        echo '<p>The account for ' . $name . ' of ' . $email . ' was successfully removed.';
+        echo '<p>The account of ' . $name . '  ' . $email . ' was successfully removed.';
     }
     else {
         echo '<p class="error">The account was not removed.</p>';

@@ -27,9 +27,7 @@
                 <li> <a href="">Sign Up</a>
                     <ul>
                         <li><a href="Sign%20Up.php">Sign Up</a></li>
-                        <li><a href="Login.html">Login</a></li>
-                        <li><a href="#">Makeup Subscription</a></li>
-                        <li><a href="#">Hair Subscription</a></li>
+                        <li><a href="Login.php">Login</a></li>
                     </ul>
                 </li>
                 <li><a href="left-sidebar.html">Makeup</a></li>
@@ -40,8 +38,9 @@
     </div>
 </div>
 
-<h2>Administration Page | Delete An Account</h2>
-
+<header>
+<h2 align="center">Administration Page | Delete An Account</h2>
+</header>
 
 <?php
 require_once('authorize.php');
@@ -56,10 +55,12 @@ $name = $stmt->fetchall();
 
 echo'<table>';
 
+$i=0;
+
 echo '<tr><th>Name</th><th>Email</th><th>Password</th>';
 
 
-foreach ($result as $row) {
+foreach ($name as $row) {
     echo '<tr class="users"><td><strong>' . $row['name'] . '</strong></td>';
     echo '<td>' . $row['email'] . '</td>';
     echo '<td>' . $row['password'] . '</td>';
